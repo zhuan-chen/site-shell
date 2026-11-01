@@ -1,0 +1,15 @@
+allowBuilds:
+  # Nothing here needs esbuild's postinstall. `remix` reaches esbuild only
+  # through @remix-run/test, whose runner calls the esbuild API, and the API
+  # finds the native binary in the platform package, such as @esbuild/linux-x64,
+  # that pnpm installs as an optional dependency. @remix-run/assets compiles
+  # without esbuild.
+  #
+  # Allowing the script would also do harm. If the platform package is missing,
+  # the script fetches it itself, with npm or straight from the registry, so the
+  # binary is never checked against pnpm's lockfile.
+  #
+  # See:
+  # - https://esbuild.github.io/getting-started/#additional-npm-flags
+  # - https://github.com/evanw/esbuild/blob/v0.27.7/lib/npm/node-install.ts
+  esbuild: false
