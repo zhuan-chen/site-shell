@@ -52,4 +52,6 @@ the wrong version.
 
 ## Upgrade
 
-Change the version in `engines.runtime` and run `pnpm install`.
+Change the version in `engines.runtime`. When the major version changes, also
+change `@types/node` to that major version, so its types match the Node.js
+version that runs. Then run `pnpm install`.

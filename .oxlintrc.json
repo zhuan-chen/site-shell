@@ -1,0 +1,25 @@
+// This file supports comments (like jsonc).
+// See: https://oxc.rs/docs/guide/usage/linter/config.html#create-a-config-file
+
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "options": {
+    // Ensure warnings produce a non-zero exit code, so a passing run leaves no
+    // findings behind.
+    // See: https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#options-denywarnings
+    "denyWarnings": true,
+
+    // oxlint lints the code and, through oxlint-tsgolint, type-checks it
+    // against tsconfig.json with TypeScript's own checker.
+    // See: https://oxc.rs/docs/guide/usage/linter/type-aware
+
+    // Enable rules that require type information, such as no-floating-promises.
+    // See: https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#options-typeaware
+    "typeAware": true,
+
+    // Enable experimental type checking (includes TypeScript compiler
+    // diagnostics), so no separate tsc run is needed.
+    // See: https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#options-typecheck
+    "typeCheck": true
+  }
+}

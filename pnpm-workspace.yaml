@@ -1,3 +1,6 @@
+# A map of package matchers to explicitly allow (true) or disallow (false)
+# script execution.
+# See: https://pnpm.io/settings/build#allowbuilds
 allowBuilds:
   # Nothing here needs esbuild's postinstall. `remix` reaches esbuild only
   # through @remix-run/test, whose runner calls the esbuild API, and the API
@@ -13,3 +16,15 @@ allowBuilds:
   # - https://esbuild.github.io/getting-started/#additional-npm-flags
   # - https://github.com/evanw/esbuild/blob/v0.27.7/lib/npm/node-install.ts
   esbuild: false
+
+# Fail an install when a package's peer dependency is missing or out of range,
+# instead of only warning.
+# See: https://pnpm.io/settings/peer-dependencies#strictpeerdependencies
+#
+# pnpm checks only while it resolves versions, as after a change to
+# package.json. A failing install still writes the lockfile and node_modules,
+# and later installs, including fresh clones, follow that lockfile without
+# resolving, so they pass without a word. `pnpm peers check` reads the lockfile
+# instead, so it reports the problem every time.
+# See: https://pnpm.io/cli/peers
+strictPeerDependencies: true

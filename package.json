@@ -4,6 +4,11 @@
   "dependencies": {
     "remix": "3.1.0"
   },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "oxlint": "1.91.0",
+    "oxlint-tsgolint": "7.0.2005"
+  },
   "packageManager": "pnpm@12.16.1",
   "engines": {
     "runtime": {

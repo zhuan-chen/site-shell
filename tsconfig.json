@@ -1,0 +1,153 @@
+// oxlint type-checks the code against these options through oxlint-tsgolint,
+// and Remix's tools read the JSX options when they compile the code.
+//
+// The options come from two sources:
+//
+// - The tsconfig.json in Remix's starter template, which they start from.
+//   See: https://github.com/remix-run/remix/blob/03c8414c726ea72db832e0f874424976cc2ec647/template/tsconfig.json
+//
+// - The checks from the strictest base in tsconfig/bases. Those not set below
+//   are already on by default: `strict` in TypeScript 7, esModuleInterop with
+//   NodeNext, and isolatedModules with verbatimModuleSyntax.
+//   See: https://github.com/tsconfig/bases/blob/b07bb2a801d695da3d445eda93037527342e6f42/bases/strictest.json
+//
+// Options follow the TSConfig reference: grouped by its categories, in its
+// order, and sorted alphabetically within each category.
+// See: https://www.typescriptlang.org/tsconfig/
+//
+// JSON doesn't allow comments, but every tool in this repository that reads
+// this file accepts them: oxlint, oxlint-tsgolint, and get-tsconfig, which
+// Remix's loader, test runner, and asset server use to read it.
+// See: https://github.com/privatenumber/get-tsconfig
+
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    // Type Checking
+
+    // Report unreachable code as an error instead of a suggestion.
+    // See: https://www.typescriptlang.org/tsconfig/#allowUnreachableCode
+    "allowUnreachableCode": false,
+
+    // Report unused labels as an error instead of a suggestion.
+    // See: https://www.typescriptlang.org/tsconfig/#allowUnusedLabels
+    "allowUnusedLabels": false,
+
+    // Reject assigning `undefined` to an optional property unless its type
+    // includes `undefined`.
+    // See: https://www.typescriptlang.org/tsconfig/#exactOptionalPropertyTypes
+    "exactOptionalPropertyTypes": true,
+
+    // Report a non-empty switch case that falls through to the next one.
+    // See: https://www.typescriptlang.org/tsconfig/#noFallthroughCasesInSwitch
+    "noFallthroughCasesInSwitch": true,
+
+    // Require `override` on a member that overrides one from a base class.
+    // See: https://www.typescriptlang.org/tsconfig/#noImplicitOverride
+    "noImplicitOverride": true,
+
+    // Report a function whose code paths don't all return a value.
+    // See: https://www.typescriptlang.org/tsconfig/#noImplicitReturns
+    "noImplicitReturns": true,
+
+    // Require obj["key"] instead of obj.key for a key that only an index
+    // signature declares.
+    // See: https://www.typescriptlang.org/tsconfig/#noPropertyAccessFromIndexSignature
+    "noPropertyAccessFromIndexSignature": true,
+
+    // Add `undefined` to the type of a value read through an index signature,
+    // such as an array element.
+    // See: https://www.typescriptlang.org/tsconfig/#noUncheckedIndexedAccess
+    "noUncheckedIndexedAccess": true,
+
+    // Report unused local variables.
+    // See: https://www.typescriptlang.org/tsconfig/#noUnusedLocals
+    "noUnusedLocals": true,
+
+    // Report unused function parameters.
+    // See: https://www.typescriptlang.org/tsconfig/#noUnusedParameters
+    "noUnusedParameters": true,
+
+    // Modules
+
+    // Let imports name .ts and .tsx files, since Node.js loads the exact file
+    // an import names.
+    // See: https://www.typescriptlang.org/tsconfig/#allowImportingTsExtensions
+    "allowImportingTsExtensions": true,
+
+    // Resolve imports as Node.js does, so type checking rejects an import that
+    // Node.js can't load. NodeNext also sets moduleResolution to NodeNext and
+    // `target` to ESNext, which accepts the newest syntax. node-tsx passes
+    // syntax to Node.js unchanged, and browser code gets older syntax only from
+    // the `target` option of remix/assets, which compiles and serves it.
+    // See:
+    // - https://www.typescriptlang.org/tsconfig/#module
+    // - https://www.typescriptlang.org/tsconfig/#target
+    // - https://github.com/remix-run/remix/blob/03c8414c726ea72db832e0f874424976cc2ec647/packages/assets/README.md#target
+    "module": "NodeNext",
+
+    // Load the global declarations of the @types packages listed here, since
+    // TypeScript 7 loads none on its own. An @types package for a package the
+    // code imports, such as @types/express for express, needs no entry: the
+    // import finds it.
+    // See: https://www.typescriptlang.org/tsconfig/#types
+    //
+    // Load:
+    // - @types/node, which declares the `node:` modules and Node.js globals
+    //   such as `process`.
+    "types": ["node"],
+
+    // Emit
+
+    // Only check types, without emitting JavaScript. allowImportingTsExtensions
+    // requires this, since emitted JavaScript would still import .ts files.
+    // Nothing here needs emitted files: node-tsx runs the source files
+    // themselves.
+    // See:
+    // - https://www.typescriptlang.org/tsconfig/#noEmit
+    // - https://www.typescriptlang.org/tsconfig/#allowImportingTsExtensions
+    "noEmit": true,
+
+    // Interop Constraints
+
+    // Require imports and exports of types to be marked with `type`, and reject
+    // any other code that can't be transformed one file at a time, which is how
+    // Remix's tools transform it. The second check comes from isolatedModules,
+    // which this option turns on automatically, so it needs no entry here.
+    // See:
+    // - https://www.typescriptlang.org/tsconfig/#verbatimModuleSyntax
+    // - https://www.typescriptlang.org/tsconfig/#isolatedModules
+    "verbatimModuleSyntax": true,
+
+    // Language and Environment
+
+    // Compile JSX into calls to the JSX runtime of remix/component; despite its
+    // name, react-jsx selects that kind of runtime, not React. node-tsx, the
+    // test runner, and remix/assets read both options from here too.
+    // See:
+    // - https://www.typescriptlang.org/tsconfig/#jsx
+    // - https://www.typescriptlang.org/tsconfig/#jsxImportSource
+    "jsx": "react-jsx",
+    "jsxImportSource": "remix/component",
+
+    // Declare the built-ins of ES2024, plus the DOM for code that runs in the
+    // browser. DOM now includes what DOM.Iterable used to add.
+    // See: https://www.typescriptlang.org/tsconfig/#lib
+    //
+    // ES2024 rather than newer, because browser code is checked against this
+    // too: nearly all of ES2024's APIs are Baseline widely available, meaning
+    // every major browser has had them for 30 months, while ES2025's won't all
+    // be until November 2027. Move to ES2025 then. Until then, server code may
+    // get a type error for a newer API that Node.js does have. ES2024 also
+    // matches Remix's starter template.
+    // See: https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility
+    "lib": ["ES2024", "DOM"],
+
+    // Completeness
+
+    // Skip checking .d.ts files, mostly the types of dependencies, whose errors
+    // aren't this project's to fix.
+    // See: https://www.typescriptlang.org/tsconfig/#skipLibCheck
+    "skipLibCheck": true
+  }
+}
