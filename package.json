@@ -6,15 +6,16 @@
   },
   "devDependencies": {
     "@types/node": "26.6.6",
+    "oxfmt": "0.76.0",
     "oxlint": "1.91.0",
     "oxlint-tsgolint": "7.0.2005"
   },
-  "packageManager": "pnpm@12.16.1",
   "engines": {
     "runtime": {
       "name": "node",
       "version": "26.13.0",
       "onFail": "download"
     }
-  }
+  },
+  "packageManager": "pnpm@12.16.1"
 }

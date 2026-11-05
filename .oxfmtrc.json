@@ -1,0 +1,26 @@
+// This file supports comments (like jsonc).
+// See:
+// - https://github.com/oxc-project/oxc/blob/f3fcdcc61b08e9880476279ba21a363967940fa4/apps/oxfmt/src/core/config/mod.rs#L140-L141
+// - https://github.com/oxc-project/oxc/blob/f3fcdcc61b08e9880476279ba21a363967940fa4/apps/oxfmt/src/core/config/mod.rs#L344-L347
+
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+
+  // Wrap lines at 80 columns instead of the default 100.
+  // See: https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html#printwidth
+  "printWidth": 80,
+
+  // Rewrap Markdown prose to fill each line up to printWidth, instead of
+  // keeping its line breaks as written.
+  // See: https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html#prosewrap
+  "proseWrap": "always",
+
+  // Don't print semicolons at the ends of statements.
+  // See: https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html#semi
+  "semi": false,
+
+  // Sort imports alphabetically within groups, such as built-in modules,
+  // packages, and relative paths, and put a blank line between groups.
+  // See: https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html#sortimports
+  "sortImports": true
+}
