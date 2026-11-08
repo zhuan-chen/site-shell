@@ -7,19 +7,19 @@ repository and checks its types. Run `pnpm exec oxlint`.
 
 The code runs without a type check: `remix/node-tsx` removes the types as
 Node.js loads each file,
-[without checking them](https://github.com/remix-run/remix/blob/03c8414c726ea72db832e0f874424976cc2ec647/packages/node-tsx/README.md?plain=1#L7),
+[without checking them](https://github.com/remix-run/remix/blob/remix@3.1.0/packages/node-tsx/README.md?plain=1#L7),
 and Remix's test runner does the same. Yet Remix's types catch real mistakes.
 For example, after a route pattern renames a parameter,
-[calls that still pass the old name](https://github.com/remix-run/remix/blob/03c8414c726ea72db832e0f874424976cc2ec647/packages/remix/guides/02-routing-and-controllers.md?plain=1#L40)
+[calls that still pass the old name](https://github.com/remix-run/remix/blob/remix@3.1.0/packages/remix/guides/02-routing-and-controllers.md?plain=1#L40)
 fail to type-check. So Remix's testing guide
-[keeps type checking as a separate command](https://github.com/remix-run/remix/blob/03c8414c726ea72db832e0f874424976cc2ec647/packages/remix/guides/13-testing.md?plain=1#L443).
+[keeps type checking as a separate command](https://github.com/remix-run/remix/blob/remix@3.1.0/packages/remix/guides/13-testing.md?plain=1#L443).
 
 oxlint runs that check through `oxlint-tsgolint`, which is built on
 [typescript-go](https://github.com/microsoft/typescript-go), the Go code behind
 TypeScript 7. Its errors are TypeScript's own, with the same codes as `tsc`, so
 this repository doesn't need the `typescript` package.
 
-[Remix lints with oxlint too](https://github.com/remix-run/remix/blob/03c8414c726ea72db832e0f874424976cc2ec647/.oxlintrc.json).
+[Remix lints with oxlint too](https://github.com/remix-run/remix/blob/remix@3.1.0/.oxlintrc.json).
 
 The common alternatives fall short:
 

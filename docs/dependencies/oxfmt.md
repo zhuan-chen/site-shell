@@ -12,7 +12,7 @@ file here: TypeScript and JSX, JSON with comments, YAML, and Markdown. It
 so its formatting looks familiar, and it sorts imports itself, where Prettier
 needs a plugin.
 
-[Remix formats with oxfmt too](https://github.com/remix-run/remix/blob/03c8414c726ea72db832e0f874424976cc2ec647/oxfmt.config.ts).
+[Remix formats with oxfmt too](https://github.com/remix-run/remix/blob/remix@3.1.0/oxfmt.config.ts).
 
 ## Configuration
 
@@ -27,6 +27,8 @@ that `.gitignore` lists (see
 Change the version in `devDependencies` and run `pnpm install`. A new version
 can format some code differently, so then run `pnpm exec oxfmt` and review what
 it changes.
+
+Repoint the links in `.oxfmtrc.json` to the `oxfmt_v<version>` release tag.
 
 oxfmt and oxlint are released together from the same repository, but neither
 depends on the other, so their version numbers don't need to match.

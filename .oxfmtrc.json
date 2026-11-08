@@ -1,7 +1,7 @@
 // This file supports comments (like jsonc).
 // See:
-// - https://github.com/oxc-project/oxc/blob/f3fcdcc61b08e9880476279ba21a363967940fa4/apps/oxfmt/src/core/config/mod.rs#L140-L141
-// - https://github.com/oxc-project/oxc/blob/f3fcdcc61b08e9880476279ba21a363967940fa4/apps/oxfmt/src/core/config/mod.rs#L344-L347
+// - https://github.com/oxc-project/oxc/blob/oxfmt_v0.76.0/apps/oxfmt/src/core/config/mod.rs#L140-L141
+// - https://github.com/oxc-project/oxc/blob/oxfmt_v0.76.0/apps/oxfmt/src/core/config/mod.rs#L344-L347
 
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",

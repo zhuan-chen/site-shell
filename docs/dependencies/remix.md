@@ -34,7 +34,7 @@ marked with `clientEntry` hydrate in the browser.
 
 Remix covers most of what a site needs in one package, from sessions and login
 to validation, data, and tests. In
-[Remix's words](https://github.com/remix-run/remix/blob/03c8414c726ea72db832e0f874424976cc2ec647/packages/remix/guides/01-start-here.md?plain=1#L8),
+[Remix's words](https://github.com/remix-run/remix/blob/remix@3.1.0/packages/remix/guides/01-start-here.md?plain=1#L8),
 "for most web apps, `remix` can be the only runtime dependency in
 `package.json`."
 
@@ -48,3 +48,20 @@ still needs separate libraries for login, validation, and data.
 The flip side is giving up React's ecosystem, such as its component libraries.
 However, with AI agents doing most of the coding today, rebuilding components is
 an acceptable cost.
+
+## Upgrade
+
+Change the version in `dependencies` and run `pnpm install`.
+
+Repoint the links in these files to the `remix@<version>` release tag:
+
+- `tsconfig.json`
+- `docs/dependencies/nodejs.md`
+- `docs/dependencies/oxfmt.md`
+- `docs/dependencies/oxlint.md`
+- `docs/dependencies/remix.md`
+
+`remix` also brings in esbuild, through `@remix-run/test`. Run
+`pnpm why esbuild` to check that the `allowBuilds` comment in
+`pnpm-workspace.yaml` still holds, and if the esbuild version changed, repoint
+the link there to the new version's tag.
