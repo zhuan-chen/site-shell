@@ -4,7 +4,7 @@
 // The options come from two sources:
 //
 // - The tsconfig.json in Remix's starter template, which they start from.
-//   See: https://github.com/remix-run/remix/blob/remix@3.1.0/template/tsconfig.json
+//   See: https://github.com/remix-run/remix/blob/remix@3.2.0/template/tsconfig.json
 //
 // - The checks from the strictest base in tsconfig/bases. Those not set below
 //   are already on by default: `strict` in TypeScript 7, esModuleInterop with
@@ -83,7 +83,7 @@
     // See:
     // - https://www.typescriptlang.org/tsconfig/#module
     // - https://www.typescriptlang.org/tsconfig/#target
-    // - https://github.com/remix-run/remix/blob/remix@3.1.0/packages/assets/README.md#target
+    // - https://github.com/remix-run/remix/blob/remix@3.2.0/packages/assets/README.md#target
     "module": "NodeNext",
 
     // Load the global declarations of the @types packages listed here, since

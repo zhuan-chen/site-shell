@@ -34,7 +34,7 @@ marked with `clientEntry` hydrate in the browser.
 
 Remix covers most of what a site needs in one package, from sessions and login
 to validation, data, and tests. In
-[Remix's words](https://github.com/remix-run/remix/blob/remix@3.1.0/packages/remix/guides/01-start-here.md?plain=1#L8),
+[Remix's words](https://github.com/remix-run/remix/blob/remix@3.2.0/packages/remix/guides/01-start-here.md?plain=1#L8),
 "for most web apps, `remix` can be the only runtime dependency in
 `package.json`."
 

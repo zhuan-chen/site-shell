@@ -12,7 +12,7 @@ file here: TypeScript and JSX, JSON with comments, YAML, and Markdown. It
 so its formatting looks familiar, and it sorts imports itself, where Prettier
 needs a plugin.
 
-[Remix formats with oxfmt too](https://github.com/remix-run/remix/blob/remix@3.1.0/oxfmt.config.ts).
+[Remix formats with oxfmt too](https://github.com/remix-run/remix/blob/remix@3.2.0/oxfmt.config.ts).
 
 ## Configuration
 

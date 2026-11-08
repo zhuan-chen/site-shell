@@ -18,7 +18,7 @@ Anything runtime-specific shows up in only two places:
    connect the runtime's server to `router.fetch()`.
 
 2. The tooling that runs, reloads, and tests the code. In
-   [Remix's starter template](https://github.com/remix-run/remix/tree/remix@3.1.0/template),
+   [Remix's starter template](https://github.com/remix-run/remix/tree/remix@3.2.0/template),
    TypeScript and JSX run through `node --import remix/node-tsx`, and hot
    reloading comes from `remix/node-hmr`, which uses Node.js module hooks; the
    CLI and test runner are written against Node.js built-in modules too.
