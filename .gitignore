@@ -1,1 +1,5 @@
 node_modules/
+
+# A site's own repository, mounted into this repository.
+# docs/architecture/site.md says why this repository ignores it.
+/site/
